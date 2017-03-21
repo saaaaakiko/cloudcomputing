@@ -2,6 +2,11 @@ from app import app
 from flask import render_template, request
 import unirest
 from forms import MessageForm
+import simple
+
+@app.route('/visualization/')
+def color():
+	return simple.polynomial()
 
 @app.route('/')
 @app.route('/index/')
