@@ -6,5 +6,5 @@ setup(name='YourAppName',
       author='Your Name',
       author_email='example@example.com',
       url='https://www.python.org/community/sigs/current/distutils-sig',
-      install_requires=['Flask','unirest','flask-wtf','Bokeh','Flask-PyMongo']
+      install_requires=['Flask','unirest','flask-wtf','bokeh','Flask-PyMongo', 'wtforms', 'flask_navigation']
       )
