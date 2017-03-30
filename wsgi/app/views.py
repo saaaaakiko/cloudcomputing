@@ -2,16 +2,28 @@ from app import app
 from flask import render_template, request
 import unirest
 from forms import MessageForm
-import simple
+import database
+from flask_navigation import Navigation
+from app import simple 
+
+nav = Navigation(app)
+
+nav.Bar('top', [
+nav.Item('Home', 'index'),
+nav.Item('Emotion App', 'emotion'),
+nav.Item('Visualization', 'polynomial'),
+nav.Item('Collections', 'get_all_databases'),
+nav.Item('Personnel', 'get_all_personnel')    #navigation_buttons
+])
 
 @app.route('/visualization/')
-def color():
+def colur():
 	return simple.polynomial()
 
 @app.route('/')
 @app.route('/index/')
 def index():
-    return render_template("index.html")	 	
+    return render_template("index.html")
 
 @app.route('/emotion/')
 def emotion():
@@ -31,4 +43,3 @@ def emotion_post():
   		}
 	)
 	return render_template("my_form.html",mood=response.body['result']['sentiment'],form=MessageForm())
-

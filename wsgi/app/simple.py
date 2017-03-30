@@ -6,7 +6,7 @@ in this directory, and navigate to:
     http://localhost:5000
 '''
 import flask
-
+from app import app
 from bokeh.embed import components
 from bokeh.plotting import figure
 from bokeh.resources import INLINE
@@ -25,9 +25,7 @@ def getitem(obj, item, default):
     else:
         return obj[item]
 
-
-
-#@app.route("/visualize_test")
+@app.route('/visualization/')
 def polynomial():
     """ Very simple embedding of a polynomial chart
     """
@@ -60,4 +58,3 @@ def polynomial():
         to=to
     )
     return encode_utf8(html)
-
